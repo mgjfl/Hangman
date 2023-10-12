@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 /** Panel containing the hanging man. */
 public class MainPanel extends JPanel implements ActionListener {
+    Gallow gallow;
     ManPanel manPanel;
     JPanel buttonPanel;
     JButton incrementPenaltyButton;
@@ -17,10 +18,15 @@ public class MainPanel extends JPanel implements ActionListener {
     /** Standard initialisation. */
     MainPanel() {
         setBackground(Color.BLUE);
+
+        gallow = new Gallow();
+        gallow.setPreferredSize(new Dimension(300, 500));
+        this.add(gallow);
+
         
         manPanel = new ManPanel();
-        manPanel.setPreferredSize(new Dimension(150, 250));
-        this.add(manPanel, BorderLayout.NORTH);
+        manPanel.setPreferredSize(new Dimension(150, 500));
+        this.add(manPanel);
 
         // Button to increment penalty level
         incrementPenaltyButton = new JButton("Increment");
@@ -50,7 +56,6 @@ public class MainPanel extends JPanel implements ActionListener {
             manPanel.penaltyLevel = 0;
         }
 
-        // paintComponent(getGraphics());
         repaint();
 
     }
@@ -73,9 +78,11 @@ public class MainPanel extends JPanel implements ActionListener {
         int maxPanelHeight = (int) this.getSize().getHeight();
 
         if (panelWidth * 5 / 3 <= maxPanelHeight) {
-            manPanel.setPreferredSize(new Dimension(panelWidth, panelWidth * 5 / 3));
+            manPanel.setPreferredSize(new Dimension(panelWidth / 2, panelWidth * 5 / 3));
+            gallow.setPreferredSize(new Dimension(panelWidth, panelWidth * 5 / 3));
         } else {
-            manPanel.setPreferredSize(new Dimension(maxPanelHeight * 3 / 5, maxPanelHeight));
+            manPanel.setPreferredSize(new Dimension(maxPanelHeight * 3 / 10, maxPanelHeight));
+            gallow.setPreferredSize(new Dimension(maxPanelHeight * 3 / 5, maxPanelHeight));
         }
         // manPanel.paintComponent(g);
 

@@ -39,7 +39,10 @@ class ManPanel extends JPanel {
         int size        = (int) getSize().getWidth() / 3;
         int thickness   = size / 5;
         int xShift      = size;
-        int yShift      = size;
+        int yShift      = 3 * size;
+
+        
+        
 
         // Body
         if (penaltyLevel >= 2) {
@@ -55,10 +58,15 @@ class ManPanel extends JPanel {
             // Draw rope
             g2.setStroke(new BasicStroke(thickness / 2));
             g2.drawOval(xShift + size / 4, yShift + size - thickness / 3, size / 2, thickness);
-            g2.draw(new Line2D.Float(xShift + size / 2, yShift + thickness, xShift + size / 2, 0));
+            g2.drawLine(xShift + size / 2, yShift + thickness, xShift + size / 2, size);
 
 
         }
+
+        // Horizontal part of gallow
+        g2.setColor(Color.black);
+        g2.setStroke(new BasicStroke(thickness * 2));
+        g2.drawLine(0, size, xShift + size, size); 
 
         // Head
         if (penaltyLevel >= 1) {

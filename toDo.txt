@@ -1,0 +1,16 @@
+
+Bridget
+- Letter invullen in text box + submit
+- Placeholder woord
+
+Maurits
+- Lijst met woorden --> array / random woord kiezen
+- Foute letters onder placeholder + increment penaltyLevel
+
+
+
+Later:
+- Goede letters in placeholder
+
+Vragen:
+- Hoe worden de advanced topics beoordeeld
