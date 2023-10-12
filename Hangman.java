@@ -6,9 +6,24 @@ public class Hangman {
     JLabel label;
     JButton button;
     JPanel panel;
+    int penaltyLevel;
 
     Hangman() {
         // Create the frame , which is a window
+        frame = new JFrame("Hangman Panel");
+    }
+
+    void setupGui() {
+
+
+        // Man panel
+        MainPanel mainPanel = new MainPanel();
+        frame.add(mainPanel);
+        frame.setSize(400, 500);
+
+
+        // To make closing the window , stop the program :
+
         frame = new JFrame("Start up button");
         // Create components , i.e., subclasses of JComponent
         label = new JLabel("Do you want to start a new game?");
@@ -32,11 +47,14 @@ public class Hangman {
         frame.setVisible(true);
     }
 
+    /**
+     * Renders the gallow.
+     */
     void addGallow() {
 
-    }
+        
 
-    // Add various body parts
+    }
 
     public static void main(String[] args) {
         new Hangman().setupGui();
