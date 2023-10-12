@@ -25,4 +25,5 @@ public class Hangman {
         frame.drawLine(100, 50, 150, 50);  // Horizontal pole
         frame.drawLine(150, 50, 150, 100); // Rope
     
+    
 }
