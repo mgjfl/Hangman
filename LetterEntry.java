@@ -1,5 +1,4 @@
 import javax.swing.*;
-import org.w3c.dom.Text;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -24,10 +23,12 @@ public class LetterEntry {
         JButton submitButton = new JButton("Enter");
 
         submitButton.addActionListener(new txtInputListener());
+        
 
         
 
         JLabel letterlabel   = new JLabel("_ _ _ _ _");
+        //letterlabel.setText(letterlabel.getText()+ (lettercount* "_ "));
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(letterlabel, BorderLayout.NORTH);
