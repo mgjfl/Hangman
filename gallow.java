@@ -1,5 +1,11 @@
-import java.awt.*;
-import javax.swing.*;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Gallow extends JPanel{
     JLabel label;
@@ -11,7 +17,7 @@ public class Gallow extends JPanel{
         // frame.setSize(400, 400);
         // frame.add(new GallowsPanel());
         // frame.setVisible(true);
-        setBackground(Color.WHITE);
+        setBackground(Color.PINK);
 
     }
 

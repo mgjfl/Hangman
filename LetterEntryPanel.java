@@ -24,6 +24,7 @@ public class LetterEntryPanel extends JPanel {
         
         txtInput = new JTextField(20);
         JButton submitButton = new JButton("Enter");
+        submitButton.setBackground(Color.LIGHT_GRAY);
 
         submitButton.addActionListener(new txtInputListener());
 

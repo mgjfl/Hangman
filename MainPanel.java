@@ -19,7 +19,7 @@ public class MainPanel extends JPanel implements ActionListener {
 
     /** Standard initialisation. */
     MainPanel() {
-        setBackground(Color.BLUE);
+        setBackground(Color.PINK);
 
         gallow = new Gallow();
         gallow.setPreferredSize(new Dimension(300, 500));
@@ -32,25 +32,30 @@ public class MainPanel extends JPanel implements ActionListener {
 
         // Button to increment penalty level
         incrementPenaltyButton = new JButton("Increment");
+        incrementPenaltyButton.setBackground(Color.LIGHT_GRAY);
         incrementPenaltyButton.addActionListener(this);
 
         // Button to reset penalty level
         resetPenaltyButton = new JButton("Reset");
+        resetPenaltyButton.setBackground(Color.LIGHT_GRAY);
         resetPenaltyButton.addActionListener(this);
 
         // Add buttons to panel
         buttonPanel = new JPanel();
         buttonPanel.add(incrementPenaltyButton, BorderLayout.WEST);
         buttonPanel.add(resetPenaltyButton, BorderLayout.EAST);
+        buttonPanel.setBackground(Color.PINK);
 
         this.add(buttonPanel, BorderLayout.SOUTH);
 
         mysteryWordPanel = new MysteryWordPanel();
         mysteryWordPanel.setPreferredSize(new Dimension(200, 200));
+        mysteryWordPanel.setBackground(Color.LIGHT_GRAY);
         this.add(mysteryWordPanel);
 
         letterEntryPanel = new LetterEntryPanel(mysteryWordPanel, manPanel);
         letterEntryPanel.setPreferredSize(new Dimension(100, 50));
+        letterEntryPanel.setBackground(Color.PINK);
         this.add(letterEntryPanel);
     }
 

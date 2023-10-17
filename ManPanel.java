@@ -14,7 +14,7 @@ class ManPanel extends JPanel {
      */
     ManPanel(int level) {
         penaltyLevel = level;
-        setBackground(Color.MAGENTA);
+        setBackground(Color.PINK);
         
     }
 

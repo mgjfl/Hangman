@@ -31,12 +31,13 @@ public class Hangman implements ActionListener {
         // StartingButton
         frame.add(startPanel);
         
-        startPanel.setBackground(Color.WHITE);
-        label.setBackground(Color.WHITE);
+        startPanel.setBackground(Color.PINK);
+        label.setBackground(Color.PINK);
         label.setPreferredSize(new Dimension(400, 100));
         label.setFont(new Font("Verdana", 1, 19));
         button.setPreferredSize(new Dimension(100,  100));
         button.setFont(new Font("Verdana", 1, 30));
+        button.setBackground(Color.LIGHT_GRAY);
 
         startPanel.add(label);
         startPanel.add(button);
