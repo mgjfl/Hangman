@@ -1,16 +1,26 @@
 
+
+
+
+
+
 Bridget
-- Letter invullen in text box + submit
-- Placeholder woord
+- Pop-up win/loss
+- Colours
 
 Maurits
-- Lijst met woorden --> array / random woord kiezen
-- Foute letters onder placeholder + increment penaltyLevel
+- Reset --> restart game
+- Delete increment
 
 
+After pitch:
+- Javadoc comments
+- Layout
 
-Later:
-- Goede letters in placeholder
+Maybe later:
+- Win/loss count
 
 Vragen:
 - Hoe worden de advanced topics beoordeeld
+- Game design?
+- Version control .git file
