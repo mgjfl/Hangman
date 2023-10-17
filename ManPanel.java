@@ -4,7 +4,7 @@ import javax.swing.*;
 
 
 class ManPanel extends JPanel {
-    int penaltyLevel;
+    private int penaltyLevel;
 
     
 
@@ -24,6 +24,12 @@ class ManPanel extends JPanel {
 
     void incrementLevel() {
         penaltyLevel++;
+        repaint();
+    }
+
+    void resetLevel() {
+        penaltyLevel = 0;
+        repaint();
     }
 
     @Override
@@ -31,9 +37,6 @@ class ManPanel extends JPanel {
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
-
-        System.out.println();
-        System.out.println(getX());
 
 
         int size        = (int) getSize().getWidth() / 3;
@@ -66,7 +69,7 @@ class ManPanel extends JPanel {
         // Horizontal part of gallow
         g2.setColor(Color.black);
         g2.setStroke(new BasicStroke(thickness * 2));
-        g2.drawLine(0, size, xShift + size, size); 
+        g2.drawLine(-size, size, xShift + size, size); 
 
         // Head
         if (penaltyLevel >= 1) {

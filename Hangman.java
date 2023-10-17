@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Hangman implements ActionListener {
-    JFrame frame;
-    MainPanel mainPanel;
-    JPanel startPanel;
+    private JFrame frame;
+    private MainPanel mainPanel;
+    private JPanel startPanel;
 
 
     Hangman() {

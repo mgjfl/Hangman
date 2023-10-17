@@ -9,11 +9,13 @@ import javax.swing.JPanel;
 
 /** Panel containing the hanging man. */
 public class MainPanel extends JPanel implements ActionListener {
-    Gallow gallow;
-    ManPanel manPanel;
-    JPanel buttonPanel;
-    JButton incrementPenaltyButton;
-    JButton resetPenaltyButton;
+    private Gallow gallow;
+    private ManPanel manPanel;
+    private MysteryWordPanel mysteryWordPanel;
+    private LetterEntryPanel letterEntryPanel;
+    private JPanel buttonPanel;
+    private JButton incrementPenaltyButton;
+    private JButton resetPenaltyButton;
 
     /** Standard initialisation. */
     MainPanel() {
@@ -42,6 +44,14 @@ public class MainPanel extends JPanel implements ActionListener {
         buttonPanel.add(resetPenaltyButton, BorderLayout.EAST);
 
         this.add(buttonPanel, BorderLayout.SOUTH);
+
+        mysteryWordPanel = new MysteryWordPanel();
+        mysteryWordPanel.setPreferredSize(new Dimension(200, 200));
+        this.add(mysteryWordPanel);
+
+        letterEntryPanel = new LetterEntryPanel(mysteryWordPanel, manPanel);
+        letterEntryPanel.setPreferredSize(new Dimension(100, 50));
+        this.add(letterEntryPanel);
     }
 
     @Override
@@ -53,7 +63,7 @@ public class MainPanel extends JPanel implements ActionListener {
             System.out.println("test");
             manPanel.incrementLevel();
         } else if (e.getActionCommand().equals("Reset")) {
-            manPanel.penaltyLevel = 0;
+            manPanel.resetLevel();
         }
 
         repaint();
@@ -64,12 +74,12 @@ public class MainPanel extends JPanel implements ActionListener {
     public void paintComponent(Graphics g) {
 
 
-        System.out.println("START - Repainting the main panel...\n");
+        // System.out.println("START - Repainting the main panel...\n");
 
         super.paintComponent(g);
 
-        System.out.print("Main panel size: ");
-        System.out.println(this.getSize());
+        // System.out.print("Main panel size: ");
+        // System.out.println(this.getSize());
 
         
         
@@ -86,7 +96,7 @@ public class MainPanel extends JPanel implements ActionListener {
         }
         // manPanel.paintComponent(g);
 
-        System.out.println("\nEND - Repainting the main panel...\n");
+        // System.out.println("\nEND - Repainting the main panel...\n");
 
     }
     
