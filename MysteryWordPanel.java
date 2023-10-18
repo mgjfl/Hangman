@@ -7,23 +7,31 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
-
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MysteryWordPanel extends JPanel {
 
-    char[] mysteryWord;
-    char[] guessedLetters;
-    Set<Character> characters;
-    StringBuilder sb;
-    JLabel placeholderLabel;
-    JLabel guessedLettersLabel;
-    JLabel incorrectGuessesLabel;
+    private char[] mysteryWord;
+    private char[] guessedLetters;
+    private Set<Character> characters;
+    private StringBuilder sb;
+    private JLabel placeholderLabel;
+    private JLabel guessedLettersLabel;
+    private JLabel incorrectGuessesLabel;
     
 
     MysteryWordPanel() {
+
+        initialiseGame();       
+
+    }
+
+    public void initialiseGame() {
+
+        // Removes previous games.
+        this.removeAll();
 
         chooseRandomMysteryWord();
 
@@ -126,7 +134,9 @@ public class MysteryWordPanel extends JPanel {
             }
         }
 
+        System.out.println("\nCurrent guess:");
         System.out.println(charArrayToString(guessedLetters));
+        System.out.println("_ ".repeat(mysteryWord.length) + "\n");
 
         if (!letterIsGuessed) {
 

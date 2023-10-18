@@ -14,8 +14,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private MysteryWordPanel mysteryWordPanel;
     private LetterEntryPanel letterEntryPanel;
     private JPanel buttonPanel;
-    private JButton incrementPenaltyButton;
-    private JButton resetPenaltyButton;
+    private JButton restartGameButton;
 
     /** Standard initialisation. */
     MainPanel() {
@@ -30,20 +29,15 @@ public class MainPanel extends JPanel implements ActionListener {
         manPanel.setPreferredSize(new Dimension(150, 500));
         this.add(manPanel);
 
-        // Button to increment penalty level
-        incrementPenaltyButton = new JButton("Increment");
-        incrementPenaltyButton.setBackground(Color.LIGHT_GRAY);
-        incrementPenaltyButton.addActionListener(this);
 
-        // Button to reset penalty level
-        resetPenaltyButton = new JButton("Reset");
-        resetPenaltyButton.setBackground(Color.LIGHT_GRAY);
-        resetPenaltyButton.addActionListener(this);
+        // Button to restart the game
+        restartGameButton = new JButton("Restart game");
+        restartGameButton.setBackground(Color.LIGHT_GRAY);
+        restartGameButton.addActionListener(this);
 
         // Add buttons to panel
         buttonPanel = new JPanel();
-        buttonPanel.add(incrementPenaltyButton, BorderLayout.WEST);
-        buttonPanel.add(resetPenaltyButton, BorderLayout.EAST);
+        buttonPanel.add(restartGameButton, BorderLayout.EAST);
         buttonPanel.setBackground(Color.PINK);
 
         this.add(buttonPanel, BorderLayout.SOUTH);
@@ -63,12 +57,11 @@ public class MainPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
 
+        if (e.getActionCommand().equals("Restart game")) {
 
-        if (e.getActionCommand().equals("Increment")) {
-            System.out.println("test");
-            manPanel.incrementLevel();
-        } else if (e.getActionCommand().equals("Reset")) {
+            System.out.println("\n\nRestarting the game...\n\n");
             manPanel.resetLevel();
+            mysteryWordPanel.initialiseGame();
         }
 
         repaint();
