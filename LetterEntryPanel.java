@@ -14,6 +14,10 @@ public class LetterEntryPanel extends JPanel {
     private MysteryWordPanel mysteryWordPanel;
     private ManPanel manPanel;
     private JTextField txtInput;
+    private MainPanel mainPanel;
+    private WinPanel WinPanel;
+    private LosePanel losePanel;
+
   
     
 
@@ -69,17 +73,28 @@ public class LetterEntryPanel extends JPanel {
 
                 // Check if the game is lost or won
 
-                // Check for a win
-                if (letterIsGuessed && mysteryWordPanel.isGameWon()) {
-                    // TODO: Create winpanel
-                }
+               // Check for a win
+               if (letterIsGuessed && mysteryWordPanel.isGameWon()) {
+               this.remove(mainPanel);
+               this.add(WinPanel);
+               }
 
-                // Check for a loss
-                if (!letterIsGuessed && manPanel.isGameLost()) {
-                    // TODO: Create loss panel
-                }
+               // Check for a loss
+               if (!letterIsGuessed && manPanel.isGameLost()) {
+               this.remove(mainPanel);
+               this.add(losePanel);
+               }
             }
 
+        }
+
+        private void add(WinPanel winPanel) {
+        }
+
+        private void add(LosePanel losePanel) {
+        }
+
+        private void remove(MainPanel mainPanel) {
         }
     }
 }

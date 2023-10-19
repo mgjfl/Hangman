@@ -133,10 +133,11 @@ public class MysteryWordPanel extends JPanel {
                 letterIsGuessed = true;
             }
         }
-
-        System.out.println("\nCurrent guess:");
-        System.out.println(charArrayToString(guessedLetters));
-        System.out.println("_ ".repeat(mysteryWord.length) + "\n");
+        
+        
+    System.out.println("\nCurrent guess:");
+    System.out.println(charArrayToString(guessedLetters));
+    System.out.println("_ ".repeat(mysteryWord.length) + "\n");
 
         if (!letterIsGuessed) {
 
