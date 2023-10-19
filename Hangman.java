@@ -65,6 +65,8 @@ public class Hangman implements ActionListener {
 
     }
 
+
+
     public static void main(String[] args) {
         new Hangman().setupGui();
     }

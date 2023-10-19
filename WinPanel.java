@@ -33,12 +33,12 @@ public class WinPanel {
             frame = new JFrame("End of the game");
             Winpanel   = new JPanel();
             frame.add(Winpanel);
-            Winlabel   = new JLabel("YOU LOST THE GAME...");
+            Winlabel   = new JLabel("GAME OVER");
             Winlabel.setBackground(Color.CYAN);
             Winlabel.setFont(new Font("Verdana", 1, 20));
             Winlabel.setForeground(Color.BLACK);
             NewGamebutton  = new JButton("Start new game");
-            CloseGame = new JButton("close the game")
+            CloseGame = new JButton("Close the game")
             NewGamebutton.addActionListener((ActionListener) this);
             CloseGame.addActionListener((ActionListener) this);
             Winpanel.add(NewGamebutton);
