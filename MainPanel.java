@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -51,6 +52,10 @@ public class MainPanel extends JPanel implements ActionListener {
         letterEntryPanel.setPreferredSize(new Dimension(100, 50));
         letterEntryPanel.setBackground(Color.PINK);
         this.add(letterEntryPanel);
+
+        // Remove horizontal space
+        FlowLayout layout = (FlowLayout)this.getLayout();
+        layout.setHgap(0);
     }
 
     @Override
