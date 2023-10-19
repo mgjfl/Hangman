@@ -66,6 +66,18 @@ public class LetterEntryPanel extends JPanel {
                 }
 
                 txtInput.setText("");
+
+                // Check if the game is lost or won
+
+                // Check for a win
+                if (letterIsGuessed && mysteryWordPanel.isGameWon()) {
+                    // TODO: Create winpanel
+                }
+
+                // Check for a loss
+                if (!letterIsGuessed && manPanel.isGameLost()) {
+                    // TODO: Create loss panel
+                }
             }
 
         }
