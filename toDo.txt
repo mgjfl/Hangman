@@ -6,11 +6,10 @@
 
 Bridget
 - Pop-up win/loss
-- Colours
+
 
 Maurits
-- Reset --> restart game
-- Delete increment
+-Backlog
 
 
 After pitch:
