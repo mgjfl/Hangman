@@ -22,14 +22,20 @@ class ManPanel extends JPanel {
         this(0);
     }
 
+    /** Increase the penalty level by one and repaint the hanging man. */
     void incrementLevel() {
         penaltyLevel++;
         repaint();
     }
 
+    /** Reset the penalty level and repaint the hanging man. */
     void resetLevel() {
         penaltyLevel = 0;
         repaint();
+    }
+
+    public boolean isGameLost() {
+        return penaltyLevel >= 7;
     }
 
     @Override

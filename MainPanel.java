@@ -48,13 +48,13 @@ public class MainPanel extends JPanel implements ActionListener {
         mysteryWordPanel.setBackground(Color.LIGHT_GRAY);
         this.add(mysteryWordPanel);
 
-        letterEntryPanel = new LetterEntryPanel(mysteryWordPanel, manPanel);
+        letterEntryPanel = new LetterEntryPanel(mysteryWordPanel, manPanel, this);
         letterEntryPanel.setPreferredSize(new Dimension(100, 50));
         letterEntryPanel.setBackground(Color.PINK);
         this.add(letterEntryPanel);
 
         // Remove horizontal space
-        FlowLayout layout = (FlowLayout)this.getLayout();
+        FlowLayout layout = (FlowLayout) this.getLayout();
         layout.setHgap(0);
     }
 
