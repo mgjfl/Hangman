@@ -70,4 +70,10 @@ public class Hangman implements ActionListener {
     public static void main(String[] args) {
         new Hangman().setupGui();
     }
+
+    public void remove(JFrame loseframe) {
+    }
+
+    public void add(MainPanel mainPanel2) {
+    }
 }

@@ -16,6 +16,8 @@ public class MainPanel extends JPanel implements ActionListener {
     private LetterEntryPanel letterEntryPanel;
     private JPanel buttonPanel;
     private JButton restartGameButton;
+    //private WinPanel winframe;
+    //private LosePanel loseframe;
 
     /** Standard initialisation. */
     MainPanel() {
@@ -102,5 +104,7 @@ public class MainPanel extends JPanel implements ActionListener {
         // System.out.println("\nEND - Repainting the main panel...\n");
 
     }
+
+  
     
 }

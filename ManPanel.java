@@ -4,7 +4,8 @@ import javax.swing.*;
 
 
 class ManPanel extends JPanel {
-    private int penaltyLevel;
+    int penaltyLevel;
+    //int maxPenalty;
 
     
 
@@ -17,6 +18,12 @@ class ManPanel extends JPanel {
         setBackground(Color.PINK);
         
     }
+
+    public boolean isGameLost(){
+        if (penaltyLevel >=7);
+        return isGameLost();
+    }
+    
 
     ManPanel() {
         this(0);
@@ -146,9 +153,14 @@ class ManPanel extends JPanel {
             // Foot
             g2.draw(new Line2D.Float((int) x2, (int) y2, (int) x3, (int) y2));
 
+
+       
+
         }
 
 
+
+        
 
 
     }

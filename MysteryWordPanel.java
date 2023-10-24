@@ -21,6 +21,7 @@ public class MysteryWordPanel extends JPanel {
     private JLabel guessedLettersLabel;
     private JLabel incorrectGuessesLabel;
     
+    
 
     MysteryWordPanel() {
 
@@ -163,6 +164,13 @@ public class MysteryWordPanel extends JPanel {
         incorrectGuessesLabel.setText(sb.toString());
 
     }
+
+    public boolean isGameWon(){
+        guessedLetters.equals(mysteryWord);
+        return isGameWon();
+    }
+
+
 
     @Override
     public void paintComponent(Graphics g) {
