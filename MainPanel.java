@@ -16,11 +16,16 @@ public class MainPanel extends JPanel implements ActionListener {
     private LetterEntryPanel letterEntryPanel;
     private JPanel buttonPanel;
     private JButton restartGameButton;
+    private MainPanel mainPanel;
+    private LosePanel losePanel;
+    private WinPanel WinPanel;
+    private Hangman frame;
     //private WinPanel winframe;
     //private LosePanel loseframe;
 
     /** Standard initialisation. */
-    MainPanel() {
+    MainPanel(Hangman fr) {
+        frame = fr;
         setBackground(Color.PINK);
 
         gallow = new Gallow();
@@ -50,7 +55,7 @@ public class MainPanel extends JPanel implements ActionListener {
         mysteryWordPanel.setBackground(Color.LIGHT_GRAY);
         this.add(mysteryWordPanel);
 
-        letterEntryPanel = new LetterEntryPanel(mysteryWordPanel, manPanel, this);
+        letterEntryPanel = new LetterEntryPanel(frame, mysteryWordPanel, manPanel, mainPanel, losePanel, WinPanel);
         letterEntryPanel.setPreferredSize(new Dimension(100, 50));
         letterEntryPanel.setBackground(Color.PINK);
         this.add(letterEntryPanel);

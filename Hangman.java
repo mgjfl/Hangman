@@ -8,7 +8,7 @@ import javax.swing.*;
  * and a GUI to play the game.
  */
 public class Hangman implements ActionListener {
-    private JFrame frame;
+    JFrame frame;
     private MainPanel mainPanel;
     private JPanel startPanel;
 
@@ -27,7 +27,7 @@ public class Hangman implements ActionListener {
 
 
         // Man panel
-        mainPanel = new MainPanel();
+        mainPanel = new MainPanel(this);
         
 
         // Create components , i.e., subclasses of JComponent
@@ -79,9 +79,5 @@ public class Hangman implements ActionListener {
         new Hangman().setupGui();
     }
 
-    public void remove(JFrame loseframe) {
-    }
 
-    public void add(MainPanel mainPanel2) {
-    }
 }

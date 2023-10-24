@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class WinPanel extends MainPanel {
+public class WinPanel extends JPanel {
 
   private JLabel Winlabel;
   private JButton NewGamebutton;
@@ -15,6 +15,8 @@ public class WinPanel extends MainPanel {
   public void winPanel() {
     Winframe = new JFrame("End of the game");
     Winpanel = new JPanel();
+    Winpanel.setPreferredSize(getPreferredSize());
+    
     Winframe.add(Winpanel);
     Winlabel = new JLabel("YOU WIN!");
     Winlabel.setBackground(Color.YELLOW);
@@ -27,9 +29,9 @@ public class WinPanel extends MainPanel {
     NewGamebutton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          Winpanel.removeAll();
-          MainPanel mainPanel = new MainPanel();
-          Winpanel.add(mainPanel);
+          // Winpanel.removeAll();
+          // MainPanel mainPanel = new MainPanel();
+          // Winpanel.add(mainPanel);
       }
   });
       
@@ -42,7 +44,7 @@ public class WinPanel extends MainPanel {
             System.exit(0);
         }
     });
-
+    Winpanel.setLayout(new FlowLayout()); 
     Winpanel.add(Winlabel);
     Winpanel.add(NewGamebutton);
     Winpanel.add(CloseGame);

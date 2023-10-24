@@ -13,8 +13,11 @@ public class LetterEntryPanel extends JPanel {
     private ManPanel manPanel;
     private JTextField txtInput;
     private MainPanel mainPanel;
-    private WinPanel winPanel;
+    
     private LosePanel losePanel;
+    private WinPanel winPanel;
+    private Hangman frame;
+
 
 
   
@@ -22,11 +25,15 @@ public class LetterEntryPanel extends JPanel {
      * Constructor, where connectivity with the MysteryWordPanel and
      * ManPanel is established to update them after letter guesses.
      */
-    LetterEntryPanel(MysteryWordPanel mwp, ManPanel mp, MainPanel mainp) {
+    LetterEntryPanel(Hangman fr, MysteryWordPanel mwp, ManPanel mp, MainPanel mainp, LosePanel lp, WinPanel wp) {
+        frame = fr;
+        mysteryWordPanel = mwp;
+        manPanel = mp;
+        mainPanel = mainp;
+        losePanel = lp;
+        winPanel= wp;
 
-        mysteryWordPanel    = mwp;
-        manPanel            = mp;
-        mainPanel           = mainp;
+    
         
         txtInput = new JTextField(20);
         txtInput.addKeyListener(new KeyAdapter() {
@@ -85,24 +92,26 @@ public class LetterEntryPanel extends JPanel {
                 if (letterIsGuessed && mysteryWordPanel.isGameWon()) {
 
                     System.out.println("\nThe game is won!\n");
-                    mainPanel.removeAll();
-                    //WinPanel winPanel = new WinPanel();
-                    //winPanel.setPreferredSize(new Dimension(500, 50));
-                    mainPanel.add(winPanel);
-                    mainPanel.revalidate(); // Revalidate the container
-                    mainPanel.repaint();
-                 };
+                    frame.frame.remove(mainPanel);
+                    
+                    winPanel = new WinPanel();
+                    frame.frame.add(winPanel);
+                
+                }
+                 
 
-                // Check for a loss
+                
                 if (!letterIsGuessed && manPanel.isGameLost()) {
                     System.out.println("\nGame over.\n");
 
-                    mainPanel.removeAll();
-                    //LosePanel losePanel = new LosePanel();
-                    //losePanel.setPreferredSize(new Dimension(500, 50));
-                    mainPanel.add(losePanel);
-                    mainPanel.revalidate(); // Revalidate the container
-                    mainPanel.repaint();
+                    
+                    frame.frame.removeAll();
+                    frame.frame.repaint();
+                    
+                    losePanel = new LosePanel();
+                    frame.frame.add(losePanel);
+                    frame.frame.repaint();
+                  
                 }
                     
                     // TODO: lose panel is not immediately painted...
@@ -114,6 +123,7 @@ public class LetterEntryPanel extends JPanel {
                 }
 
             }
+
 
         
 
