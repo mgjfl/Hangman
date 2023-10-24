@@ -11,6 +11,12 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Panel containing a placeholder for the mystery or guessing word, 
+ * chosen randomly from listOfWords.txt
+ * Correct guesses are put above the placeholder positions and
+ * incorrect guesses below them.
+ */
 public class MysteryWordPanel extends JPanel {
 
     private char[] mysteryWord;
@@ -23,12 +29,14 @@ public class MysteryWordPanel extends JPanel {
     
     
 
+    /** Constructor. */
     MysteryWordPanel() {
 
         initialiseGame();       
 
     }
 
+    /** Chooses a mystery word and sets up the variables and panels for (in)correct guesses. */
     public void initialiseGame() {
 
         // Removes previous games.
@@ -80,6 +88,7 @@ public class MysteryWordPanel extends JPanel {
     }
 
 
+    /** Transforms char[] to a string with spaces between the characters. */
     public String charArrayToString(char[] x) {
         // Creating object of String class
         StringBuilder sb = new StringBuilder();
@@ -93,6 +102,7 @@ public class MysteryWordPanel extends JPanel {
         return sb.toString();
     }
 
+    /** Chooses a random mystery word from listOfWords.txt */
     public void chooseRandomMysteryWord() {
 
         // A list of potential mystery words will be stored here 
@@ -123,6 +133,7 @@ public class MysteryWordPanel extends JPanel {
         mysteryWord = wordList.get(randomIndex).toCharArray();
     }
 
+    /** Updates local variables after the user guesses character c. */
     public boolean guessLetter(char c) {
 
         boolean letterIsGuessed = false;
@@ -136,9 +147,9 @@ public class MysteryWordPanel extends JPanel {
         }
         
         
-    System.out.println("\nCurrent guess:");
-    System.out.println(charArrayToString(guessedLetters));
-    System.out.println("_ ".repeat(mysteryWord.length) + "\n");
+        System.out.println("\nCurrent guess:");
+        System.out.println(charArrayToString(guessedLetters));
+        System.out.println("_ ".repeat(mysteryWord.length) + "\n");
 
         if (!letterIsGuessed) {
 
@@ -158,6 +169,7 @@ public class MysteryWordPanel extends JPanel {
         return letterIsGuessed;
     }
 
+    /** Update the labels describing the (in)correct guesses. */
     public void updateLabels() {
 
         guessedLettersLabel.setText(charArrayToString(guessedLetters));
@@ -165,12 +177,23 @@ public class MysteryWordPanel extends JPanel {
 
     }
 
-    public boolean isGameWon(){
-        guessedLetters.equals(mysteryWord);
-        return isGameWon();
-    }
 
 
+
+
+    /** Checks if the game is won. */
+   // public boolean isGameWon() {
+
+  //      boolean out = mysteryWord.length == guessedLetters.length;
+    //
+       // for (int i = 0; i < mysteryWord.length; i++) {
+       //     if (mysteryWord[i] != guessedLetters[i]) {
+       //         out = false;
+       //     }
+       // }
+
+      //  return out;
+      // }
 
     @Override
     public void paintComponent(Graphics g) {
