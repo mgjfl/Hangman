@@ -13,9 +13,8 @@ public class LetterEntryPanel extends JPanel {
     private ManPanel manPanel;
     private JTextField txtInput;
     private MainPanel mainPanel;
-
-    //private WinPanel Winframe;
-    //private LosePanel Loseframe;
+    private WinPanel winPanel;
+    private LosePanel losePanel;
 
 
   
@@ -85,27 +84,29 @@ public class LetterEntryPanel extends JPanel {
                 // Check for a win
                 if (letterIsGuessed && mysteryWordPanel.isGameWon()) {
 
-                System.out.println("\nThe game is won!\n");
+                    System.out.println("\nThe game is won!\n");
                     mainPanel.removeAll();
-                    WinPanel winPanel = new WinPanel();
-                    winPanel.setPreferredSize(new Dimension(500, 50));
+                    //WinPanel winPanel = new WinPanel();
+                    //winPanel.setPreferredSize(new Dimension(500, 50));
                     mainPanel.add(winPanel);
-                }
+                    mainPanel.revalidate(); // Revalidate the container
+                    mainPanel.repaint();
+                 };
 
                 // Check for a loss
                 if (!letterIsGuessed && manPanel.isGameLost()) {
                     System.out.println("\nGame over.\n");
 
-                    // JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
                     mainPanel.removeAll();
-                    LosePanel losePanel = new LosePanel();
-                    losePanel.setPreferredSize(new Dimension(500, 50));
+                    //LosePanel losePanel = new LosePanel();
+                    //losePanel.setPreferredSize(new Dimension(500, 50));
                     mainPanel.add(losePanel);
-                    
-                    // TODO: lose panel is not immediately painted...
-                    losePanel.repaint();
+                    mainPanel.revalidate(); // Revalidate the container
                     mainPanel.repaint();
                 }
+                    
+                    // TODO: lose panel is not immediately painted...
+
                 
 
                 }

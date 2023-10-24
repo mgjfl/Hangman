@@ -19,10 +19,6 @@ class ManPanel extends JPanel {
         
     }
 
-    public boolean isGameLost(){
-        if (penaltyLevel >=7);
-        return isGameLost();
-    }
     
 
     ManPanel() {
@@ -41,9 +37,12 @@ class ManPanel extends JPanel {
         repaint();
     }
 
-    public boolean isGameLost() {
-        return penaltyLevel >= 7;
+    public boolean isGameLost(){
+        return penaltyLevel >= 8;
+  
     }
+    
+
 
     @Override
     public void paintComponent(Graphics g) {
@@ -169,6 +168,18 @@ class ManPanel extends JPanel {
         
 
 
+    }
+
+
+
+    public int getPenaltyLevel() {
+        return penaltyLevel;
+    }
+
+
+
+    public void setPenaltyLevel(int penaltyLevel) {
+        this.penaltyLevel = penaltyLevel;
     }
 
     

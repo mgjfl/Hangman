@@ -182,18 +182,18 @@ public class MysteryWordPanel extends JPanel {
 
 
     /** Checks if the game is won. */
-   // public boolean isGameWon() {
+    public boolean isGameWon() {
 
-  //      boolean out = mysteryWord.length == guessedLetters.length;
-    //
-       // for (int i = 0; i < mysteryWord.length; i++) {
-       //     if (mysteryWord[i] != guessedLetters[i]) {
-       //         out = false;
-       //     }
-       // }
+        boolean out = mysteryWord.length == guessedLetters.length;
+    
+       for (int i = 0; i < mysteryWord.length; i++) {
+           if (mysteryWord[i] != guessedLetters[i]) {
+               out = false;
+            }
+       }
 
-      //  return out;
-      // }
+        return out;
+ }
 
     @Override
     public void paintComponent(Graphics g) {

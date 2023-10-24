@@ -10,8 +10,7 @@ public class WinPanel extends MainPanel {
   private JButton CloseGame;
   private JPanel Winpanel;
   private JFrame Winframe;
-  private MainPanel mainPanel;
-  private Hangman frame;
+ 
   
   public void winPanel() {
     Winframe = new JFrame("End of the game");
@@ -26,14 +25,13 @@ public class WinPanel extends MainPanel {
     CloseGame = new JButton("Close the game");
 
     NewGamebutton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-         
-        frame.remove(Winframe);
-        frame.add(mainPanel);
-        mainPanel.setVisible(true);
-        }
-    });
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          Winpanel.removeAll();
+          MainPanel mainPanel = new MainPanel();
+          Winpanel.add(mainPanel);
+      }
+  });
       
  
 
@@ -48,7 +46,8 @@ public class WinPanel extends MainPanel {
     Winpanel.add(Winlabel);
     Winpanel.add(NewGamebutton);
     Winpanel.add(CloseGame);
-    Winframe.setVisible(false);
+
+    
   }
 }
 
