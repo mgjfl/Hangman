@@ -79,5 +79,8 @@ public class Hangman implements ActionListener {
         new Hangman().setupGui();
     }
 
+    public void remove(MainPanel mainPanel2) {
+    }
+
 
 }

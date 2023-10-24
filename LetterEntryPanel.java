@@ -92,9 +92,9 @@ public class LetterEntryPanel extends JPanel {
                 if (letterIsGuessed && mysteryWordPanel.isGameWon()) {
 
                     System.out.println("\nThe game is won!\n");
-                    frame.frame.remove(mainPanel);
+                    mainPanel.removeAll();
                     
-                    winPanel = new WinPanel();
+                    //winPanel = new WinPanel();
                     frame.frame.add(winPanel);
                 
                 }
@@ -102,16 +102,17 @@ public class LetterEntryPanel extends JPanel {
 
                 
                 if (!letterIsGuessed && manPanel.isGameLost()) {
-                    System.out.println("\nGame over.\n");
+                    System.out.println("\nGame over...\n");
 
+                    mainPanel.removeAll();
+                    mainPanel.revalidate(); // Revalidate the main panel to reflect changes
+                    mainPanel.repaint();
                     
-                    frame.frame.removeAll();
-                    frame.frame.repaint();
-                    
-                    losePanel = new LosePanel();
+                    // Assuming losePanel is a separate JPanel you want to add
+                    // losePanel = new LosePanel();
                     frame.frame.add(losePanel);
-                    frame.frame.repaint();
-                  
+                    frame.frame.revalidate(); // Revalidate the frame to reflect changes
+                }
                 }
                     
                     // TODO: lose panel is not immediately painted...
@@ -131,4 +132,4 @@ public class LetterEntryPanel extends JPanel {
 
 
     
-}
+
