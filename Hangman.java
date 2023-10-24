@@ -11,6 +11,8 @@ public class Hangman implements ActionListener {
     JFrame frame;
     private MainPanel mainPanel;
     private JPanel startPanel;
+    private LosePanel losePanel;
+    private WinPanel winPanel;
 
     /**
      * Class constructor contains the frame.
@@ -25,9 +27,12 @@ public class Hangman implements ActionListener {
      */
     void setupGui() {
 
+        losePanel   = new LosePanel(frame);
+        winPanel    = new WinPanel(frame);
+
 
         // Man panel
-        mainPanel = new MainPanel(this);
+        mainPanel = new MainPanel(frame, losePanel, winPanel);
         
 
         // Create components , i.e., subclasses of JComponent

@@ -6,29 +6,33 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /** Panel containing the hanging man. */
 public class MainPanel extends JPanel implements ActionListener {
-    private Gallow gallow;
+    private Gallows gallow;
     private ManPanel manPanel;
     private MysteryWordPanel mysteryWordPanel;
     private LetterEntryPanel letterEntryPanel;
     private JPanel buttonPanel;
     private JButton restartGameButton;
-    private MainPanel mainPanel;
+    private JFrame frame;
     private LosePanel losePanel;
-    private WinPanel WinPanel;
-    private Hangman frame;
-    //private WinPanel winframe;
-    //private LosePanel loseframe;
+    private WinPanel winPanel;
 
     /** Standard initialisation. */
-    MainPanel(Hangman fr) {
-        frame = fr;
+    MainPanel(JFrame fr, LosePanel lp, WinPanel wp) {
+        frame       = fr;
+        losePanel   = lp;
+        winPanel    = wp;
+
+        losePanel.addMainPanel(this);
+        winPanel.addMainPanel(this);
+
         setBackground(Color.PINK);
 
-        gallow = new Gallow();
+        gallow = new Gallows();
         gallow.setPreferredSize(new Dimension(300, 500));
         this.add(gallow);
 
@@ -55,7 +59,7 @@ public class MainPanel extends JPanel implements ActionListener {
         mysteryWordPanel.setBackground(Color.LIGHT_GRAY);
         this.add(mysteryWordPanel);
 
-        letterEntryPanel = new LetterEntryPanel(frame, mysteryWordPanel, manPanel, mainPanel, losePanel, WinPanel);
+        letterEntryPanel = new LetterEntryPanel(frame, mysteryWordPanel, manPanel, this, losePanel, winPanel);
         letterEntryPanel.setPreferredSize(new Dimension(100, 50));
         letterEntryPanel.setBackground(Color.PINK);
         this.add(letterEntryPanel);

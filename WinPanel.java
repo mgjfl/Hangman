@@ -1,69 +1,67 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
 
-public class WinPanel extends JPanel {
-
-  private JLabel Winlabel;
-  private JButton NewGamebutton;
-  private JButton CloseGame;
-  private JPanel Winpanel;
-  private JFrame Winframe;
- 
-  
-  public void winPanel() {
-    Winframe = new JFrame("End of the game");
-    Winpanel = new JPanel();
-    Winpanel.setPreferredSize(getPreferredSize());
-    
-    Winframe.add(Winpanel);
-    Winlabel = new JLabel("YOU WIN!");
-    Winlabel.setBackground(Color.YELLOW);
-    Winlabel.setFont(new Font("Verdana", 1, 20));
-    Winlabel.setForeground(Color.RED);
-
-    NewGamebutton = new JButton("Start new game");
-    CloseGame = new JButton("Close the game");
-
-    NewGamebutton.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-          // Winpanel.removeAll();
-          // MainPanel mainPanel = new MainPanel();
-          // Winpanel.add(mainPanel);
-      }
-  });
-      
  
 
-    CloseGame.addActionListener(new ActionListener() {
+/** Win panel. */
+public class WinPanel extends JPanel implements ActionListener {
+    private JLabel loseLabel;
+    private JButton newGamebutton;
+    private JButton closeGame;
+    private MainPanel mainPanel;
+    private JFrame frame;
+
+
+    /** Constructor. */
+    public WinPanel(JFrame f) {
+        super();
+
+        frame = f;
+        loseLabel   = new JLabel("YOU HAVE WON THE GAME!");
+        loseLabel.setBackground(Color.CYAN);
+        loseLabel.setFont(new Font("Verdana", 1, 20));
+        loseLabel.setForeground(Color.BLACK);
+        newGamebutton  = new JButton("Start new game");
+        closeGame = new JButton("Close the game");
+
+        add(loseLabel);
+        add(newGamebutton);
+        add(closeGame);
+
+        setBackground(Color.BLUE);
+
+        closeGame.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            // Action for "Close the game" button in the win panel
-            System.exit(0);
+                // Action for "Close the game" button in the win panel
+                System.exit(0);
         }
-    });
-    Winpanel.setLayout(new FlowLayout()); 
-    Winpanel.add(Winlabel);
-    Winpanel.add(NewGamebutton);
-    Winpanel.add(CloseGame);
+        });
+
+        newGamebutton.addActionListener(this);
+
+    }
+
+    public void addMainPanel(MainPanel mp) {
+        mainPanel = mp;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Start a new game
+        frame.remove(this);
+        frame.add(mainPanel);
+        frame.setSize(800, 1000);
+    }
 
     
-  }
+  
+
+    @Override
+    public void paintComponent(Graphics g) {
+
+        super.paintComponent(g);
+    }
 }
-
-
-
-
-
-
-
-        
-
-
-
-
-
-    
-

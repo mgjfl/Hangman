@@ -13,10 +13,9 @@ public class LetterEntryPanel extends JPanel {
     private ManPanel manPanel;
     private JTextField txtInput;
     private MainPanel mainPanel;
-    
     private LosePanel losePanel;
     private WinPanel winPanel;
-    private Hangman frame;
+    private JFrame frame;
 
 
 
@@ -25,13 +24,13 @@ public class LetterEntryPanel extends JPanel {
      * Constructor, where connectivity with the MysteryWordPanel and
      * ManPanel is established to update them after letter guesses.
      */
-    LetterEntryPanel(Hangman fr, MysteryWordPanel mwp, ManPanel mp, MainPanel mainp, LosePanel lp, WinPanel wp) {
-        frame = fr;
-        mysteryWordPanel = mwp;
-        manPanel = mp;
-        mainPanel = mainp;
-        losePanel = lp;
-        winPanel= wp;
+    LetterEntryPanel(JFrame fr, MysteryWordPanel mwp, ManPanel mp, MainPanel mainp, LosePanel lp, WinPanel wp) {
+        frame               = fr;
+        mysteryWordPanel    = mwp;
+        manPanel            = mp;
+        mainPanel           = mainp;
+        losePanel           = lp;
+        winPanel            = wp;
 
     
         
@@ -92,10 +91,14 @@ public class LetterEntryPanel extends JPanel {
                 if (letterIsGuessed && mysteryWordPanel.isGameWon()) {
 
                     System.out.println("\nThe game is won!\n");
-                    mainPanel.removeAll();
-                    
-                    //winPanel = new WinPanel();
-                    frame.frame.add(winPanel);
+
+                    // Reset game parameters
+                    manPanel.resetLevel();
+                    mysteryWordPanel.chooseRandomMysteryWord();
+
+                    frame.remove(mainPanel);
+                    frame.add(winPanel);
+                    frame.setSize(801, 1000);
                 
                 }
                  
@@ -104,26 +107,23 @@ public class LetterEntryPanel extends JPanel {
                 if (!letterIsGuessed && manPanel.isGameLost()) {
                     System.out.println("\nGame over...\n");
 
-                    mainPanel.removeAll();
-                    mainPanel.revalidate(); // Revalidate the main panel to reflect changes
-                    mainPanel.repaint();
-                    
-                    // Assuming losePanel is a separate JPanel you want to add
-                    // losePanel = new LosePanel();
-                    frame.frame.add(losePanel);
-                    frame.frame.revalidate(); // Revalidate the frame to reflect changes
-                }
-                }
-                    
-                    // TODO: lose panel is not immediately painted...
+                    // Reset game parameters
+                    manPanel.resetLevel();
+                    mysteryWordPanel.chooseRandomMysteryWord();
 
-                
-
-                }
+                    frame.remove(mainPanel);
+                    frame.add(losePanel);
+                    frame.setSize(801, 1000);
                     
                 }
-
             }
+                    
+            // TODO: lose panel is not immediately painted...
+
+
+        }
+    }
+}
 
 
         

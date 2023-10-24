@@ -1,25 +1,14 @@
-
-
-
-
-
-
-Bridget
-- Pop-up win/loss
-
+Classes opschonen + javadoc + comments + checkstyle etc
 
 Maurits
--Backlog
+- Hangman
+- MainPanel
+- ManPanel
+- MysteryWordPanel
+- Gallows
 
+Bridget
+- LosePanel
+- WinPanel
+- LetterEntryPanel
 
-After pitch:
-- Javadoc comments
-- Layout
-
-Maybe later:
-- Win/loss count
-
-Vragen:
-- Hoe worden de advanced topics beoordeeld
-- Game design?
-- Version control .git file

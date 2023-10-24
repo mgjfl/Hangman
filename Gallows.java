@@ -7,12 +7,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Gallow extends JPanel{
+public class Gallows extends JPanel{
     JLabel label;
     JButton button;
     JPanel panel;
 
-    Gallow(){
+    Gallows(){
         // frame = new JFrame("Gallow");
         // frame.setSize(400, 400);
         // frame.add(new GallowsPanel());

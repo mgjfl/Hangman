@@ -3,80 +3,65 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+ 
+
+/** Game over panel. */
+public class LosePanel extends JPanel implements ActionListener {
+    private JLabel loseLabel;
+    private JButton newGamebutton;
+    private JButton closeGame;
+    private MainPanel mainPanel;
+    private JFrame frame;
 
 
+    /** Constructor. */
+    public LosePanel(JFrame f) {
+        super();
 
+        frame = f;
+        loseLabel   = new JLabel("GAME OVER");
+        loseLabel.setBackground(Color.CYAN);
+        loseLabel.setFont(new Font("Verdana", 1, 20));
+        loseLabel.setForeground(Color.BLACK);
+        newGamebutton  = new JButton("Start new game");
+        closeGame = new JButton("Close the game");
 
+        add(loseLabel);
+        add(newGamebutton);
+        add(closeGame);
 
- /**
- * 
- */
-class LosePanel extends JPanel implements ActionListener{
-    private JLabel loselabel;
-    private JButton NewGamebutton;
-    private JButton CloseGame;
-    private JPanel losepanel;
-    private JFrame Loseframe;
-    private Hangman frame;
+        setBackground(Color.BLUE);
 
-
-
-    /**
-     * 
-     */
-    public LosePanel() {
-    super();
-        Loseframe = new JFrame("End of the game");
-        losepanel = new JPanel();
-        Loseframe.add(losepanel);
-        losepanel.setPreferredSize(getPreferredSize());
-        loselabel = new JLabel("GAME OVER");
-        loselabel.setBackground(Color.CYAN);
-        loselabel.setFont(new Font("Verdana", 1, 20));
-        loselabel.setForeground(Color.BLACK);
-        
-        NewGamebutton = new JButton("Start new game");
-        CloseGame = new JButton("Close the game");
-        //NewGamebutton.addActionListener((ActionListener) this);
-        //CloseGame.addActionListener((ActionListener) this);
-        losepanel.setLayout(new FlowLayout(ABORT));
-        losepanel.add(loselabel);
-        losepanel.add(NewGamebutton);
-        losepanel.add(CloseGame);
-        
-    
-        NewGamebutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.frame.removeAll();
-                MainPanel mainPanel = new MainPanel(frame);
-                frame.frame.add(mainPanel);
-            }
+        closeGame.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Action for "Close the game" button in the win panel
+            System.exit(0);
+        }
         });
-    
-        
-        CloseGame.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-        
-}
 
+        newGamebutton.addActionListener(this);
+
+    }
+
+    public void addMainPanel(MainPanel mp) {
+        mainPanel = mp;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        // Start a new game
+        frame.remove(this);
+        frame.add(mainPanel);
+        frame.setSize(800, 1000);
     }
 
+    
+  
+
+    @Override
+    public void paintComponent(Graphics g) {
+
+        super.paintComponent(g);
+    }
 }
-    
-
-
-
-
-
-    
-
