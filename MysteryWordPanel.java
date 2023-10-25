@@ -26,8 +26,7 @@ public class MysteryWordPanel extends JPanel {
     private JLabel placeholderLabel;
     private JLabel guessedLettersLabel;
     private JLabel incorrectGuessesLabel;
-    
-    
+ 
 
     /** Constructor. */
     MysteryWordPanel() {
@@ -36,17 +35,18 @@ public class MysteryWordPanel extends JPanel {
 
     }
 
+
     /** Chooses a mystery word and sets up the variables and panels for (in)correct guesses. */
     public void initialiseGame() {
 
         chooseRandomMysteryWord();
 
-        
     }
 
 
     /** Transforms char[] to a string with spaces between the characters. */
     public String charArrayToString(char[] x) {
+
         // Creating object of String class
         StringBuilder sb = new StringBuilder();
  
@@ -58,6 +58,7 @@ public class MysteryWordPanel extends JPanel {
  
         return sb.toString();
     }
+
 
     /** Chooses a random mystery word from listOfWords.txt */
     public void chooseRandomMysteryWord() {
@@ -135,6 +136,7 @@ public class MysteryWordPanel extends JPanel {
         updateLabels();
     }
 
+
     /** Updates local variables after the user guesses character c. */
     public boolean guessLetter(char c) {
 
@@ -153,16 +155,12 @@ public class MysteryWordPanel extends JPanel {
         System.out.println(charArrayToString(guessedLetters));
         System.out.println("_ ".repeat(mysteryWord.length) + "\n");
 
-        if (!letterIsGuessed) {
+        // If character c is an incorrect guess, add it to the incorrect guesses
+        if (!letterIsGuessed && !characters.contains(c)) {
 
-            if (!characters.contains(c)) {
+            characters.add(c);
+            sb.append(c + " ");
 
-                characters.add(c);
-                sb.append(c + " ");
-
-            }
-
-            
         }
 
         updateLabels();
@@ -170,6 +168,7 @@ public class MysteryWordPanel extends JPanel {
 
         return letterIsGuessed;
     }
+
 
     /** Update the labels describing the (in)correct guesses. */
     public void updateLabels() {
@@ -180,31 +179,33 @@ public class MysteryWordPanel extends JPanel {
     }
 
 
-
-
-
     /** Checks if the game is won. */
     public boolean isGameWon() {
 
-        boolean out = mysteryWord.length == guessedLetters.length;
+        // The lengths
+        boolean out;
+        if (mysteryWord.length == guessedLetters.length) {
+            out = true;
+        } else {
+            System.out.println("ERROR: The guessed word has an incorrect length.");
+            return false;
+        }
     
-       for (int i = 0; i < mysteryWord.length; i++) {
-           if (mysteryWord[i] != guessedLetters[i]) {
-               out = false;
+        // Check for each letter
+        for (int i = 0; i < mysteryWord.length; i++) {
+            if (mysteryWord[i] != guessedLetters[i]) {
+                out = false;
             }
-       }
+        }
 
         return out;
- }
+
+    }
 
     @Override
     public void paintComponent(Graphics g) {
-        
+
         super.paintComponent(g);
 
-        
     }
-
-    
 }
-

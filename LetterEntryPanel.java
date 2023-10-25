@@ -117,10 +117,6 @@ public class LetterEntryPanel extends JPanel {
                     
                 }
             }
-                    
-            // TODO: lose panel is not immediately painted...
-
-
         }
     }
 }
