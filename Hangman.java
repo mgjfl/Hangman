@@ -5,17 +5,17 @@ import javax.swing.*;
 
 /**
  * The main class for the Hangman game, including a home screen to start a game 
- * and a GUI to play the game.
+ * a GUI to play the game and pop-ups for winning and losing the game.
  */
 public class Hangman implements ActionListener {
-    JFrame frame;
+    private JFrame frame;
     private MainPanel mainPanel;
     private JPanel startPanel;
     private LosePanel losePanel;
     private WinPanel winPanel;
 
     /**
-     * Class constructor contains the frame.
+     * Class constructor creates the frame.
      */
     Hangman() {
         // Create the frame , which is a window
@@ -23,27 +23,26 @@ public class Hangman implements ActionListener {
     }
 
     /**
-     * Builds the home screen with start button and the GUI to play the game.
+     * Creates the objects for the start screen, GUI and win/loss pop-ups.
      */
     void setupGui() {
 
+        // Pop-ups for winning and losing a game
         losePanel   = new LosePanel(frame);
         winPanel    = new WinPanel(frame);
 
 
-        // Man panel
+        // The main panel employed by the GUI containing the hanging man,
+        // a panel for the mysteryword and a place to insert letter guesses.
         mainPanel = new MainPanel(frame, losePanel, winPanel);
         
 
-        // Create components , i.e., subclasses of JComponent
+        // Now we create the components for the starting panel with a button to start a game.
         JLabel label   = new JLabel("Do you want to start a new game?");
         JButton button  = new JButton("yes");
-        button.addActionListener(this);
         startPanel   = new JPanel();
 
-        // StartingButton
-        frame.add(startPanel);
-        
+        // We style the startin gpanel
         startPanel.setBackground(Color.PINK);
         label.setBackground(Color.PINK);
         label.setPreferredSize(new Dimension(400, 100));
@@ -52,40 +51,44 @@ public class Hangman implements ActionListener {
         button.setFont(new Font("Verdana", 1, 30));
         button.setBackground(Color.LIGHT_GRAY);
 
+        // Adding functionality to the button
+        button.addActionListener(this);
+
+        // Adding the components to the panel
         startPanel.add(label);
         startPanel.add(button);
 
+        // We start with the starting panel occupying the frame
+        frame.add(startPanel);
         
-
+        // Setting several parameters
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-
-
+        // This handles the functionality of the "yes"-button
         if (e.getActionCommand().equals("yes")) {
+
             System.out.println("Starting the game");
+
+            // Switchig to the main panel
             frame.remove(startPanel);
             frame.add(mainPanel);
             frame.setSize(800, 1000);
         }
 
-        // repaint();
-
     }
-
 
 
     public static void main(String[] args) {
+
+        // Start the game
         new Hangman().setupGui();
+
     }
-
-    public void remove(MainPanel mainPanel2) {
-    }
-
-
 }

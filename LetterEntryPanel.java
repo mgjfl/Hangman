@@ -75,8 +75,8 @@ public class LetterEntryPanel extends JPanel {
 
             if (text.length() > 0) {
 
-                char input = txtInput.getText().charAt(0);   // receive input from the text field
-                System.out.println("Input: " + input);
+            char input = txtInput.getText().charAt(0);   // receive input from the text field
+            System.out.println("Input: " + input);
                 boolean letterIsGuessed = mysteryWordPanel.guessLetter(input);
 
                 if (!letterIsGuessed) {
@@ -116,10 +116,6 @@ public class LetterEntryPanel extends JPanel {
                     frame.setSize(801, 1000);
                 }
             }
-                    
-                    
-
-                
 
         }
                     
