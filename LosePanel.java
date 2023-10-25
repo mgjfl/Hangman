@@ -19,23 +19,24 @@ public class LosePanel extends JPanel implements ActionListener {
         super();
 
         frame = f;
-        loseLabel   = new JLabel("GAME OVER");
+        loseLabel   = new JLabel("");
         loseLabel.setBackground(Color.CYAN);
         loseLabel.setFont(new Font("Verdana", 1, 20));
         loseLabel.setForeground(Color.BLACK);
         newGamebutton  = new JButton("Start new game");
         closeGame = new JButton("Close the game");
+        add(new JLabel(new ImageIcon("game over image.jpg")));
 
         add(loseLabel);
         add(newGamebutton);
         add(closeGame);
 
-        setBackground(Color.BLUE);
+        setBackground(Color.CYAN);
 
         closeGame.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            // Action for "Close the game" button in the win panel
+            /*Action for "Close the game" button in the win/lose panel*/
             System.exit(0);
         }
         });
@@ -50,7 +51,7 @@ public class LosePanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Start a new game
+        /*action for 'start new game' button*/
         frame.remove(this);
         frame.add(mainPanel);
         frame.setSize(800, 1000);

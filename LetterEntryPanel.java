@@ -13,6 +13,7 @@ public class LetterEntryPanel extends JPanel {
     private ManPanel manPanel;
     private JTextField txtInput;
     private MainPanel mainPanel;
+    
     private LosePanel losePanel;
     private WinPanel winPanel;
     private JFrame frame;
@@ -23,6 +24,7 @@ public class LetterEntryPanel extends JPanel {
     /** 
      * Constructor, where connectivity with the MysteryWordPanel and
      * ManPanel is established to update them after letter guesses.
+     * Updates the user when the game is won or lost.
      */
     LetterEntryPanel(JFrame fr, MysteryWordPanel mwp, ManPanel mp, MainPanel mainp, LosePanel lp, WinPanel wp) {
         frame               = fr;
@@ -31,9 +33,8 @@ public class LetterEntryPanel extends JPanel {
         mainPanel           = mainp;
         losePanel           = lp;
         winPanel            = wp;
-
     
-        
+        // entry for the guessed letter
         txtInput = new JTextField(20);
         txtInput.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) { 
@@ -87,15 +88,14 @@ public class LetterEntryPanel extends JPanel {
 
             
 
-                // Check for a win
+                /*check for a win */
                 if (letterIsGuessed && mysteryWordPanel.isGameWon()) {
 
-                    System.out.println("\nThe game is won!\n");
-
+                    System.out.println("\nYou have won the game!\n");
                     // Reset game parameters
                     manPanel.resetLevel();
                     mysteryWordPanel.chooseRandomMysteryWord();
-
+               
                     frame.remove(mainPanel);
                     frame.add(winPanel);
                     frame.setSize(801, 1000);
@@ -103,26 +103,28 @@ public class LetterEntryPanel extends JPanel {
                 }
                  
 
-                
+                /*checking for a loss */
                 if (!letterIsGuessed && manPanel.isGameLost()) {
                     System.out.println("\nGame over...\n");
 
                     // Reset game parameters
                     manPanel.resetLevel();
                     mysteryWordPanel.chooseRandomMysteryWord();
-
+              
                     frame.remove(mainPanel);
                     frame.add(losePanel);
                     frame.setSize(801, 1000);
-                    
                 }
             }
                     
-            // TODO: lose panel is not immediately painted...
+                    
 
+                
 
         }
+                    
     }
+
 }
 
 

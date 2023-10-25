@@ -25,12 +25,13 @@ public class WinPanel extends JPanel implements ActionListener {
         loseLabel.setForeground(Color.BLACK);
         newGamebutton  = new JButton("Start new game");
         closeGame = new JButton("Close the game");
+        add(new JLabel(new ImageIcon("you win.jpg")));
 
         add(loseLabel);
         add(newGamebutton);
         add(closeGame);
 
-        setBackground(Color.BLUE);
+        setBackground(Color.YELLOW);
 
         closeGame.addActionListener(new ActionListener() {
         @Override
@@ -50,7 +51,7 @@ public class WinPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Start a new game
+        // action for 'start a new game' button
         frame.remove(this);
         frame.add(mainPanel);
         frame.setSize(800, 1000);
