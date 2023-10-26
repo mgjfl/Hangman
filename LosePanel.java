@@ -34,11 +34,11 @@ public class LosePanel extends JPanel implements ActionListener {
         setBackground(Color.CYAN);
 
         closeGame.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            /*Action for "Close the game" button in the win/lose panel*/
-            System.exit(0);
-        }
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                /*Action for "Close the game" button in the win/lose panel*/
+                System.exit(0);
+            }
         });
 
         newGamebutton.addActionListener(this);

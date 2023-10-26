@@ -34,11 +34,11 @@ public class WinPanel extends JPanel implements ActionListener {
         setBackground(Color.YELLOW);
 
         closeGame.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-                // Action for "Close the game" button in the win panel
-                System.exit(0);
-        }
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    // Action for "Close the game" button in the win panel
+                    System.exit(0);
+            }
         });
 
         newGamebutton.addActionListener(this);

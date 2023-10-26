@@ -26,7 +26,8 @@ public class LetterEntryPanel extends JPanel {
      * ManPanel is established to update them after letter guesses.
      * Updates the user when the game is won or lost.
      */
-    LetterEntryPanel(JFrame fr, MysteryWordPanel mwp, ManPanel mp, MainPanel mainp, LosePanel lp, WinPanel wp) {
+    LetterEntryPanel(JFrame fr, MysteryWordPanel mwp, ManPanel mp, 
+        MainPanel mainp, LosePanel lp, WinPanel wp) {
         frame               = fr;
         mysteryWordPanel    = mwp;
         manPanel            = mp;
@@ -75,8 +76,9 @@ public class LetterEntryPanel extends JPanel {
 
             if (text.length() > 0) {
 
-            char input = txtInput.getText().charAt(0);   // receive input from the text field
-            System.out.println("Input: " + input);
+                // receive input from the text field
+                char input = txtInput.getText().charAt(0);   
+                System.out.println("Input: " + input);
                 boolean letterIsGuessed = mysteryWordPanel.guessLetter(input);
 
                 if (!letterIsGuessed) {
